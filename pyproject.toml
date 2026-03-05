@@ -1,0 +1,41 @@
+[project]
+name = "claude-compaction-viewer"
+version = "0.1.0"
+description = "TUI and CLI for inspecting Claude Code conversation history and compaction events"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.11"
+authors = [
+    { name = "swyx", email = "shawnthe1@gmail.com" },
+]
+keywords = ["claude", "claude-code", "compaction", "tui", "conversation", "llm", "context"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Utilities",
+]
+dependencies = [
+    "textual>=1.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/swyxio/claude-compaction-viewer"
+Repository = "https://github.com/swyxio/claude-compaction-viewer"
+Issues = "https://github.com/swyxio/claude-compaction-viewer/issues"
+
+[project.scripts]
+ccv = "claude_compaction_viewer.__main__:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/claude_compaction_viewer"]
