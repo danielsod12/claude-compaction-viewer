@@ -5,6 +5,10 @@ A TUI and CLI tool for inspecting [Claude Code](https://docs.anthropic.com/en/do
 ![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)
 ![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)
 
+
+<img width="1884" height="1236" alt="image" src="https://github.com/user-attachments/assets/005eb118-3504-4d5c-b092-d1aa99dc94ed" />
+
+
 ## What is compaction?
 
 When a Claude Code session runs long, the context window fills up. Rather than crashing or losing everything, Claude Code performs **compaction**: it inserts a boundary marker in the conversation, generates a structured summary of everything before it, and continues with the summary replacing the full history in the active context.
